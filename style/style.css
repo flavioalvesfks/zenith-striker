@@ -1,0 +1,182 @@
+/* --- GLOBAIS --- */
+body {
+    margin: 0; padding: 0;
+    background-color: #0c0530;
+    color: #fff;
+    font-family: 'Courier New', Courier, monospace;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* --- LAYOUT PRINCIPAL --- */
+.main-layout {
+    display: grid;
+    grid-template-columns: 1fr 580px 1fr;
+    width: 100%;
+    height: 100vh;
+}
+
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* --- PAINEL ESQUERDO --- */
+.left-panel { align-items: flex-start; padding-left: 40px; }
+.side-logo { width: 250px; margin-bottom: 30px; }
+
+.player-3d-art {
+    width: 240px;
+    height: auto;
+    margin: 20px 0;
+    display: block;
+}
+
+.challenge-box { width: 250px; line-height: 1.6; font-size: 1rem; }
+
+/* --- PAINEL DIREITO --- */
+.right-panel {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.story-title {
+    color: #ffffff;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    margin-bottom: 25px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    display: block;
+    padding-bottom: 10px;
+}
+
+.story-text {
+    color: #ffffff;
+    font-size: 1rem;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.story-text strong { color: #fb8319; font-weight: bold; }
+
+/* --- RODAPÉ --- */
+.footer-credits {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    height: 60px;
+}
+
+.tech-icons { display: flex; gap: 15px; font-size: 1.8rem; }
+.fa-html5 { color: #E34F26; }
+.fa-css3-alt { color: #1572B6; }
+.fa-js-square { color: #F7DF1E; }
+
+.dev-info { display: flex; flex-direction: column; text-align: right; }
+.dev-info .label { color: #ffe229; font-size: 0.75rem; text-transform: lowercase; }
+.dev-info .handle { color: #fb8319; font-size: 0.85rem; font-weight: bold; text-transform: lowercase; }
+
+/* --- ÁREA CENTRAL DO JOGO --- */
+.game-center { display: flex; justify-content: center; align-items: center; }
+
+#game-container {
+    position: relative;
+    box-shadow: 0 0 50px rgba(255, 0, 0, 0.3);
+    border: 4px solid #333;
+    background-color: #000;
+}
+
+canvas { display: block; image-rendering: pixelated; }
+
+/* --- INTERFACE DE MENU (UI) --- */
+#ui-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    pointer-events: none;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.screen {
+    pointer-events: all;
+    background: rgba(0, 0, 0, 0.9);
+    padding: 40px; 
+    border: 4px double #f00;
+    text-align: center;
+}
+
+.menu-buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; }
+
+/* --- BOTÕES --- */
+button {
+    background: #f00; color: #fff; border: 2px solid #fff;
+    padding: 15px 25px; font-family: inherit; font-weight: bold;
+    cursor: pointer; text-transform: uppercase;
+}
+button:hover { background: #fff; color: #f00; }
+
+.btn-alt { background: transparent; color: #ff0; border-color: #ff0; }
+.btn-alt:hover { background: #ff0; color: #000; }
+
+h1 { color: #f00; text-shadow: 3px 3px #800; font-size: 2.5rem; margin: 0; }
+
+/* --- MODAIS --- */
+.modal {
+    position: fixed;
+    z-index: 100;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.8); 
+    display: flex; justify-content: center; align-items: center;
+}
+
+.modal-content {
+    background-color: #0c0530;
+    padding: 20px; border: 3px solid #f00; position: relative;
+}
+
+.modal-content img { max-height: 80vh; image-rendering: pixelated; }
+
+.close-modal {
+    position: absolute; right: 10px; top: 5px; color: #fff;
+    font-size: 30px; font-weight: bold; cursor: pointer;
+}
+
+/* --- UTILITÁRIOS E ANIMAÇÕES --- */
+.hidden { display: none !important; }
+
+.game-over-text { color: #f00; font-size: 3.5rem; animation: blink 0.5s infinite; }
+
+@keyframes blink { 
+    0% { opacity: 1; } 
+    50% { opacity: 0.5; } 
+    100% { opacity: 1; } 
+}
+
+/* --- RANKING E RECORDES --- */
+#player-initials {
+    width: 80px; text-align: center; font-size: 1.8rem; 
+    font-weight: bold; background: #000; color: #ffe229; 
+    border: 2px solid #fb8319; padding: 5px; margin-right: 10px;
+    text-transform: uppercase; outline: none;
+}
+
+.rank-row {
+    display: flex; justify-content: space-between; 
+    padding: 10px 0; border-bottom: 1px dashed rgba(255,255,255,0.2);
+    font-size: 1.1rem;
+}
+
+.rank-row.champion { 
+    color: #fb8319 !important; 
+    font-weight: bold; 
+    text-shadow: 0 0 5px rgba(251, 131, 25, 0.5); 
+}
+
+.rank-row span { flex: 1; }
